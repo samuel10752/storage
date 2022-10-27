@@ -14,7 +14,24 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+
+    <!-- #Formulario para Cadastro -->
+    <form [formGroup]="pessoaForm" (submit)="enviar()" >
+      <ion-item lines="none">
+        <ion-label position="floating">Nome:</ion-label>
+        <ion-input formControlName="nome"></ion-input>
+      </ion-item>
+     <ion-button padding shape="round" expand="block" type="submit" >Gravar</ion-button> 
+    </form>
+    <!-- #fim do formulaário -->
+
+    <!-- #começo da lista de item cadastrados no storage -->
+    <ion-item *ngFor="let arrayPessoa of arrayPessoa" lines="nome">
+      <ion-label>
+        {{arrayPessoa.nome}}
+      </ion-label>
+    </ion-item>
+
   </div>
 </ion-content>
